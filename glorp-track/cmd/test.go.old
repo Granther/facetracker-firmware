@@ -1,0 +1,10 @@
+package main
+
+import (
+	"log"
+	"glorp-track/internal/utils"
+)
+
+func main() {
+	log.Fatal(utils.ExecCommand("mkdir hello"))
+}
