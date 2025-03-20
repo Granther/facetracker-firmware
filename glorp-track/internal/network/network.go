@@ -18,3 +18,9 @@ func GetIP(ifaceName string) (net.IP, error) {
 
 	return ipv4Addr, nil
 }
+
+func IfaceExists(ifaceName string) bool {
+	iface, _ := net.InterfaceByName(ifaceName)
+	if iface != nil { return true }
+	return false
+}

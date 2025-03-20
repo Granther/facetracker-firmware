@@ -1,19 +1,18 @@
 package main
 
 import (
-	//"os"
-	//"fmt"
+	"os"
+	"fmt"
 
-	//"github.com/joho/godotenv"
+	"github.com/joho/godotenv"
 
-	//"glorp-track/internal/errors"
+	"glorp-track/internal/errors"
 	"glorp-track/internal/setup"
-	//"glorp-track/internal/track"
-	//"glorp-track/internal/network"
+	"glorp-track/internal/track"
+	"glorp-track/internal/network"
 )
 
 func main() {
-/*
 	envMap, err := godotenv.Read("./.env")
 	errors.ProcessError(errors.FS_ERR, "unable to load .env", err)
 
@@ -22,12 +21,10 @@ func main() {
 
 	if ip == nil { // No ip, move to setup mode
 		fmt.Println("Run setup")
-		//setup.Init()
+		setup.Init(envMap["HS_IFACE"], envMap["HS_GATEWAY_IP"])
 	} else {
 		fmt.Println("Run track")
-		//track.Init()
+		track.Init()
 	}
 	os.Exit(0)
-*/
-	setup.Init()
 }

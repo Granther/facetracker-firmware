@@ -1,0 +1,15 @@
+[Unit]
+Description=Facetracker Camera Publisher Service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+WorkingDirectory=/home/grant/facetracker-firmware/publisher
+ExecStart=/home/grant/facetracker-firmware/publisher/run.sh
+
+[Install]
+WantedBy=multi-user.target
