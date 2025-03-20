@@ -1,0 +1,15 @@
+[Unit]
+Description=Facetracker Captive Portal Setup
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+WorkingDirectory=/home/grant/facetracker-firmware/captive-portal
+ExecStart=./run.sh
+
+[Install]
+WantedBy=multi-user.target

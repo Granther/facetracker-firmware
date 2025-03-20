@@ -33,7 +33,7 @@ func setupHotspot() error {
 	err := utils.ExecCommand("systemctl start dnsmasq")
 	if err != nil { return err }
 
-	err = utils.ExecCommand("systemctl start lighttpd")
+	err = utils.ExecCommand("systemctl start captive-portal")
 	if err != nil { return err }
 
 	err = utils.ExecCommand("systemctl start nginx")
