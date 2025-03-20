@@ -13,7 +13,7 @@ func SetupRouter() *gin.Engine {
 
 	r.GET("/", IndexHandler())
 
-//	r.POST("/submit", SubmitHandler())
+	r.POST("/submit", SubmitHandler())
 
 	return r
 }
