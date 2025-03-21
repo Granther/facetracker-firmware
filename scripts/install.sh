@@ -7,6 +7,9 @@ echo "Updating system"
 # General packages
 apt install nginx dnsmasq hostapd git neovim wget iptables make -y;
 
+# If we are using python for publish
+apt install python3-picamera2 -y;
+
 rm /etc/hostapd/hostapd.conf
 
 echo "Pasting in hostapd config"
@@ -43,7 +46,7 @@ END
 
 echo "Stopping all systemd services"
 systemctl stop dnsmasq
-systemctl stop nignx
+systemctl stop nginx
 systemctl unmask hostapd
 systemctl stop hostapd
 
@@ -67,6 +70,8 @@ rm -rf /usr/local/go && tar -C /usr/local -xzf go1.24.1.linux-arm64.tar.gz
 echo "Adding golang to PATH"
 echo "export PATH='$PATH:/usr/local/go/bin'" >> /root/.bashrc
 echo "export PATH='$PATH:/usr/local/go/bin'" >> /home/grant/.bashrc
+
+source .bashrc
 
 echo "Building captive portal bin"
 make -C facetracker-firmware/captive-portal build

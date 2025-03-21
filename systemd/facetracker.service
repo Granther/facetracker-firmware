@@ -9,7 +9,7 @@ Restart=always
 RestartSec=1
 User=root
 WorkingDirectory=/home/grant/facetracker-firmware/glorp-track
-ExecStart=./run.sh
+ExecStart=/home/grant/facetracker-firmware/glorp-track/run.sh
 
 [Install]
 WantedBy=multi-user.target
