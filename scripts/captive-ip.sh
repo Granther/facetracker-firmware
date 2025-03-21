@@ -16,4 +16,3 @@ iptables -t nat -A PREROUTING -i uap0 ! -d 192.168.4.1 -j captiveportal
 iptables -t nat -A PREROUTING -i uap0 -p udp --dport 53 -j DNAT --to 192.168.4.1:53
 iptables -t nat -A PREROUTING -i uap0 -p tcp --dport 53 -j DNAT --to 192.168.4.1:53
 
-./main
