@@ -24,8 +24,14 @@ func DiscoverNets() {
 	return
 }
 
-func ConnectNetwork(ssid, pass string) error {
-	return utils.ExecCommand(fmt.Sprintf("raspi-config nonint do_wifi_ssid_passphrase %s %s", ssid, pass))
+func ConnectNetwork(ssid, pass string, hidden bool) error {
+	plain_flag := 1 // Quotes are not present
+	hidden_flag := 0 // Not hidden
+	if hidden {
+		hidden_flag = 1 // Set to hidden
+	}
+
+	return utils.ExecCommand(fmt.Sprintf("raspi-config nonint do_wifi_ssid_passphrase %s %s %d %d", ssid, pass, hidden_flag, plain_flag))
 	// Connect
 	// If connection is successful, set state to setup
 }

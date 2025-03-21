@@ -1,6 +1,7 @@
 package web
 
 import (
+	"strings"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -19,8 +20,14 @@ func SubmitHandler() gin.HandlerFunc {
 	fn := func(c *gin.Context) {
 		ssid := c.PostForm("ssid")
 		pass := c.PostForm("password")
+		hidden := c.PostForm("hidden")		
 
-		err := network.ConnectNetwork(ssid, pass) // If we connect, set state to setup
+		hidden_net := false
+		if strings.Contains(hidden, "hidden") {
+			hidden_net = true
+		}
+
+		err := network.ConnectNetwork(ssid, pass, hidden_net) // If we connect, set state to setup
 		// We dont loose the captive portal because it is a 'separate' adapter
 		if err != nil {
 			c.Status(http.StatusInternalServerError)

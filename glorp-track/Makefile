@@ -3,3 +3,6 @@ run:
 
 build:
 	go build cmd/main.go
+
+build_cross:
+	env GOOS=linux GOARCH=arm64 go build cmd/main.go
